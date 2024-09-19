@@ -1,6 +1,6 @@
 package lovelace.resolver;
 
-import lovelace.exe.Executable;
+import lovelace.spi.exe.Executable;
 
 import java.util.List;
 import java.util.Optional;

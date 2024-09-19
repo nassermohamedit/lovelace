@@ -1,6 +1,6 @@
 package lovelace.exe.builtins;
 
-import lovelace.Console;
+import lovelace.spi.console.Console;
 import lovelace.exe.BuiltinExecutable;
 
 /**
@@ -14,7 +14,7 @@ public class Clear implements BuiltinExecutable {
     }
 
     @Override
-    public void execute(Console console) {
+     public void execute(Console console) {
         console.clear();
     }
 }

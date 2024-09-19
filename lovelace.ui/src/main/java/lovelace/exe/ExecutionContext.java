@@ -1,6 +1,7 @@
 package lovelace.exe;
 
-import lovelace.Console;
+import lovelace.spi.console.Console;
+import lovelace.spi.exe.Executable;
 
 /**
  * @author nasser

@@ -1,9 +1,13 @@
 package lovelace;
 
 import lovelace.exe.BuiltinExecutable;
-import lovelace.exe.Executable;
 import lovelace.exe.ExecutionContext;
 import lovelace.resolver.ExecutableResolver;
+import lovelace.spi.console.Input;
+import lovelace.spi.console.Output;
+import lovelace.spi.exe.Executable;
+import lovelace.spi.console.Console;
+
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -80,15 +84,15 @@ public final class DefaultConsole extends JTextPane implements Console {
         setDocument(new ConsoleDocument());
     }
 
-    public In in() {
+    public Input in() {
         return in;
     }
 
-    public Out out() {
+    public Output out() {
         return out;
     }
 
-    private final static class ConsoleReader implements In {
+    private final static class ConsoleReader implements Input {
 
         private String in;
 
@@ -119,7 +123,7 @@ public final class DefaultConsole extends JTextPane implements Console {
         }
     }
 
-    private static class ConsoleWriter implements Out {
+    private static class ConsoleWriter implements Output {
 
         private final DefaultConsole console;
 

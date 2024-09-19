@@ -1,5 +1,7 @@
 package lovelace;
 
+import lovelace.spi.console.ConsoleCaret;
+
 import javax.swing.plaf.TextUI;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultCaret;
@@ -10,7 +12,7 @@ import java.awt.*;
 /**
  * @author nasser
  */
-public class BlockCaret extends DefaultCaret {
+public class BlockCaret extends DefaultCaret implements ConsoleCaret {
 
     @Override
     public void paint(Graphics g) {
@@ -22,7 +24,6 @@ public class BlockCaret extends DefaultCaret {
                 TextUI mapper = textArea.getUI();
                 Rectangle r = mapper.modelToView(textArea, getDot());
                 validateWidth(r);
-
                 if (width > 0 && height > 0 &&
                         !contains(r.x, r.y, r.width, r.height)) {
                     Rectangle clip = g.getClipBounds();
@@ -32,7 +33,6 @@ public class BlockCaret extends DefaultCaret {
                     damage(r);
                 }
                 r.height -= 2;
-
                 Color textAreaBg = textArea.getBackground();
                 if (textAreaBg == null) {
                     textAreaBg = Color.white;
@@ -44,7 +44,6 @@ public class BlockCaret extends DefaultCaret {
             }
         }
     }
-
 
     protected synchronized void damage(Rectangle r) {
         if (r != null) {
@@ -75,7 +74,5 @@ public class BlockCaret extends DefaultCaret {
             }
 
         }
-
-
     }
 }

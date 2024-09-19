@@ -1,5 +1,7 @@
 package lovelace.exe;
 
+import lovelace.spi.exe.Executable;
+
 /**
  * @author nasser
  */
